@@ -1,0 +1,7 @@
+{
+  "name": "research",
+  "private": true,
+  "scripts": {
+    "build": "cd research-site && npm ci && npm run build && rm -rf ../dist && cp -r dist ../dist"
+  }
+}
