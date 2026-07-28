@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Investing Research — ARM / DISCO" description="ARM 与 DISCO 两家公司的深度研究">
+  <main>
+    <section class="hero" style="background:
+      radial-gradient(ellipse 90% 55% at 50% 115%, rgba(77,141,214,0.22), transparent 60%),
+      linear-gradient(to bottom, #000 0%, #04060a 100%);">
+      <p class="kicker">Investing · Deep Research</p>
+      <h1>Semis<br/>Research</h1>
+      <p class="sub">两家半导体产业链关键公司的系统研究：CPU 指令集的事实标准 Arm，与后道切磨抛设备的准垄断者 DISCO。数据取自 SEC 文件、有価証券報告書与公司决算资料。</p>
+      <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <section class="block">
+      <div class="inner grid2">
+        <a href="/arm/" class="card company-card">
+          <p class="eyebrow">NASDAQ : ARM</p>
+          <h2 style="font-size:44px;">ARM</h2>
+          <p style="color:var(--ink-2); font-weight:300; margin-bottom:22px;">
+            全球移动/嵌入式 CPU 指令集事实标准。授权 + 版税的轻资产模式，增长引擎正从手机切换到数据中心 / AI，并于 2026 年首次下场自研整芯片。
+          </p>
+          <ul>
+            <li><b>FY2026 营收</b> — $4.92B（+23%，连续三年 20%+）</li>
+            <li><b>累计出货</b> — 超 3,500 亿颗 Arm 芯片</li>
+            <li><b>头号变量</b> — AGI CPU 自研芯片 + Arm China 敞口</li>
+          </ul>
+          <p class="enter">进入研究 →</p>
+        </a>
+        <a href="/disco/" class="card company-card">
+          <p class="eyebrow">TSE : 6146</p>
+          <h2 style="font-size:44px;">DISCO</h2>
+          <p style="color:var(--ink-2); font-weight:300; margin-bottom:22px;">
+            晶圆切割・研磨・抛光设备全球市占约七成的隐形冠军。HBM 减薄与先进封装的卡脖子环节，制造业里罕见的 70% 毛利率 + 42% 营业利润率。
+          </p>
+          <ul>
+            <li><b>FY2025 营收</b> — ¥436.9B（约 $2.9B，五年 CAGR 14.5%）</li>
+            <li><b>毛利率</b> — 70.1%，五年提升近 10 个百分点</li>
+            <li><b>头号变量</b> — 台积电集中度 + 大中华区 58% 敞口</li>
+          </ul>
+          <p class="enter">进入研究 →</p>
+        </a>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .company-card { display: block; transition: border-color .25s, transform .25s; }
+  .company-card:hover { border-color: var(--ink-2); transform: translateY(-4px); }
+  .company-card .enter {
+    margin-top: 26px; font-size: 12px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--accent); font-weight: 600;
+  }
+</style>

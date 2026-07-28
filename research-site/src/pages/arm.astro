@@ -1,0 +1,236 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="ARM 研究 — 计算世界的底层标准" description="Arm Holdings (NASDAQ: ARM) 深度研究：商业模式、财务、历史与 Arm China 风险">
+  <main>
+    <section class="hero" style="background:
+      radial-gradient(ellipse 75% 55% at 22% 15%, rgba(77,141,214,0.18), transparent 60%),
+      radial-gradient(ellipse 80% 40% at 80% 110%, rgba(120,130,150,0.12), transparent 65%),
+      linear-gradient(195deg, #000 30%, #04070c 100%);">
+      <p class="kicker">NASDAQ · ARM · SoftBank 控股约 90%</p>
+      <h1>ARM</h1>
+      <p class="sub">全球移动/嵌入式 CPU 指令集的事实标准。它不造芯片（直到 2026 年首次例外），靠"授权费入场 + 每颗芯片抽版税"收租——累计超 3,500 亿颗 Arm 芯片出货，增长引擎正从手机换挡到数据中心与 AI。</p>
+      <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <div class="statbar">
+      <div class="stat"><div class="num">$4.92<small>B</small></div><div class="label">FY2026 营收 · 同比 +23%</div></div>
+      <div class="stat"><div class="num">$2.61<small>B</small></div><div class="label">版税收入 · 同比 +21%</div></div>
+      <div class="stat"><div class="num">&gt;3,500<small>亿颗</small></div><div class="label">累计出货 Arm 芯片</div></div>
+      <div class="stat"><div class="num">$25<small>B</small></div><div class="label">管理层 FY2031 营收目标</div></div>
+    </div>
+
+    <!-- 商业模式 -->
+    <section class="block" id="model">
+      <div class="inner">
+        <p class="eyebrow">01 · Business Model</p>
+        <h2>授权 + 版税</h2>
+        <p class="lede">收入两条腿，先后叠加而非二选一：客户先付<strong>授权费</strong>（拿到设计权，一次性、波动大），芯片量产后<strong>每卖一颗抽版税</strong>（长期持续、稳）。芯片生命周期超 10 年，十几年前的老设计至今仍在收钱。<strong>版税增长靠单颗更值钱，不是靠卖更多颗。</strong></p>
+        <div class="grid2">
+          <div>
+            <div class="table-scroll">
+              <table class="data">
+                <thead><tr><th>技术档位</th><th>版税率（占芯片 ASP）</th></tr></thead>
+                <tbody>
+                  <tr><td>Armv8</td><td>~2.5–3%</td></tr>
+                  <tr><td>Armv9</td><td>~5%（约翻倍）</td></tr>
+                  <tr class="hl"><td>CSS 计算子系统</td><td class="pos">~10%（再翻倍）</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">版税增长 = <b>单价升级（v8→v9→CSS）× 结构升级（数据中心占比上升）</b>。FY26 数据中心版税同比翻倍，顶级云厂商新服务器 CPU 中 Arm 份额约 50%（AWS Graviton、Google Axion、Microsoft Cobalt 均基于 Neoverse）。</div>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>授权套餐</th><th>本质</th><th>规模（FY26 末）</th></tr></thead>
+              <tbody>
+                <tr><td>Flexible Access（AFA）</td><td>低价自助餐，量产时才补授权费</td><td>~329 家</td></tr>
+                <tr><td>Total Access（ATA）</td><td>订阅制全包，含最新全部 IP</td><td>~56 家</td></tr>
+                <tr><td>单项技术授权</td><td>只买某一个核</td><td>—</td></tr>
+                <tr><td>架构授权</td><td>买指令集，允许自研兼容核（苹果、高通、英伟达）</td><td>—</td></tr>
+              </tbody>
+            </table>
+            <p class="chart-note" style="margin-top:16px;">典型路径：AFA 试水 → 做大后升级 ATA——把客户往上引、锁定长期版税的漏斗。ACV（年度合约价值）$1.66B，同比 +22%。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 财务 -->
+    <section class="block alt" id="financials">
+      <div class="inner">
+        <p class="eyebrow">02 · Financials</p>
+        <h2>三年财务</h2>
+        <p class="lede">连续三年营收增速 20%+：<strong>$3.23B → $4.01B → $4.92B</strong>。单季营收自 FY25 Q4 起站稳 10 亿美元。授权收入受大额合同签约时点影响呈锯齿状（FY26 Q4 授权 $819M 一度反超版税）——<strong>看趋势盯版税，看动能盯授权签约</strong>。</p>
+        <div class="grid2">
+          <div>
+            <div class="legend">
+              <span><i style="background:#4d8dd6"></i>版税 Royalty</span>
+              <span><i style="background:#f5f5f7"></i>授权 License</span>
+            </div>
+            <div class="chart-wrap"><canvas id="qChart" role="img" aria-label="12个季度版税与授权收入堆叠图"></canvas></div>
+            <p class="chart-note">季度营收构成（百万美元）· FY24Q1 – FY26Q4</p>
+          </div>
+          <div>
+            <div class="legend">
+              <span><i style="background:#4d8dd6"></i>总营收</span>
+              <span><i style="background:#f5f5f7"></i>Non-GAAP 净利</span>
+              <span><i style="background:#6e7278"></i>GAAP 净利</span>
+            </div>
+            <div class="chart-wrap"><canvas id="aChart" role="img" aria-label="三个财年营收与净利柱状图"></canvas></div>
+            <p class="chart-note">FY24 GAAP 净利受 IPO 股权激励一次性费用压制（Q2 FY24 为唯一 GAAP 亏损季）</p>
+          </div>
+        </div>
+        <div class="table-scroll" style="margin-top:56px;">
+          <table class="data">
+            <thead><tr><th>百万美元</th><th>FY2024</th><th>FY2025</th><th>FY2026</th></tr></thead>
+            <tbody>
+              <tr><td>总营收</td><td>3,233</td><td>4,007</td><td>4,920</td></tr>
+              <tr><td>版税</td><td>1,802</td><td>2,168</td><td>2,613</td></tr>
+              <tr><td>授权</td><td>1,431</td><td>1,839</td><td>2,307</td></tr>
+              <tr><td>GAAP 净利</td><td>306</td><td>792</td><td>904</td></tr>
+              <tr><td>Non-GAAP 净利</td><td>—</td><td>1,737</td><td>1,889</td></tr>
+              <tr><td>营收同比</td><td class="pos">+21%</td><td class="pos">+24%</td><td class="pos">+23%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top:30px;">客户集中度（FY26 20-F）：<b>前五大客户占收入 57%</b>（含 Arm China 与软银集团）；最大客户 <b>Arm China 占 16%</b>，高通占 9%。利润被高研发 + 股权激励侵蚀，Non-GAAP 更能反映经营盈利。</div>
+      </div>
+    </section>
+
+    <!-- 发展沿革 -->
+    <section class="block" id="history">
+      <div class="inner">
+        <p class="eyebrow">03 · History</p>
+        <h2>三次大转折</h2>
+        <div class="timeline" style="margin-top:40px;">
+          <div class="tl-item"><span class="tl-date">1985–1990</span><h4>起点</h4><p>Acorn 的 Sophie Wilson 与 Steve Furber 设计出首颗 ARM 处理器；1990 年 Acorn + Apple + VLSI 合资成立 Advanced RISC Machines，首任 CEO Robin Saxby 确立"只卖 IP、不造芯片"。</p></div>
+          <div class="tl-item"><span class="tl-date">1993–2006</span><h4>移动标准</h4><p>ARM7TDMI 随诺基亚走向全球；1998 年伦敦 + 纳斯达克双重上市；Cortex-A/R/M 三分支统治智能手机与 IoT，收购 Falanx 发展 Mali GPU。</p></div>
+          <div class="tl-item major"><span class="tl-date">2016.07</span><h4>软银 320 亿美元私有化</h4><p>孙正义押注"万物皆联网"。摆脱季度业绩压力后重注研发，2018 年推出数据中心平台 Neoverse——为日后 AI 增长埋下伏笔。</p></div>
+          <div class="tl-item major"><span class="tl-date">2020–2022</span><h4>英伟达 400 亿美元收购流产</h4><p>FTC/CMA/欧盟以反垄断与国家安全为由反对，2022 年 2 月取消；Rene Haas 接任 CEO，转向重新 IPO。同期重组 Arm 中国股权，扫清并表障碍。</p></div>
+          <div class="tl-item major"><span class="tl-date">2023.09</span><h4>纳斯达克重新上市</h4><p>估值约 545 亿美元，当年全球最大 IPO。软银保留约 90% 股份——流通盘小、波动大，战略高度受软银意志影响。</p></div>
+          <div class="tl-item"><span class="tl-date">2025</span><h4>聚焦 CPU 平台</h4><p>将 Artisan 物理 IP 业务出售给 Cadence（2026 年 1 月交割），退出低差异化业务；高端 CPU 品牌重组为 C1 系列。</p></div>
+          <div class="tl-item major"><span class="tl-date">2026.03</span><h4>从"卖 IP"到"卖芯片"</h4><p>发布史上首颗自研量产芯片 <b>Arm AGI CPU</b>（136 核，面向 AI 数据中心，与 Meta 联合开发，2026 下半年量产）。36 年来最大的商业模式变化，与高通、英伟达等客户形成竞合。管理层给出 FY2031 目标：营收约 $25B、EPS 超 $9。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品 -->
+    <section class="block alt" id="products">
+      <div class="inner">
+        <p class="eyebrow">04 · Products</p>
+        <h2>产品演进</h2>
+        <div class="grid3">
+          <div class="card"><h3>Cortex 系列（2004–）</h3><p>现代三分支：Cortex-A 高性能应用处理器（手机/平板/笔电）、Cortex-R 实时安全（存储/基带/汽车）、Cortex-M 超低功耗微控制器（IoT，出货量最大）。</p></div>
+          <div class="card"><h3>Neoverse（2018–）</h3><p>数据中心/云平台，N/V/E 三系。AWS Graviton、Google Axion、Microsoft Cobalt 几乎都基于它——FY24–FY26 版税增长的核心引擎。</p></div>
+          <div class="card"><h3>Armv9（2021–）</h3><p>新一代指令集，单颗版税率较 v8 约翻倍——版税增长的结构性驱动。</p></div>
+          <div class="card"><h3>CSS 计算子系统</h3><p>预集成、经验证的"半成品"，客户拿来即可快速流片。版税率约 10%，是把单颗价值再翻倍的抓手。</p></div>
+          <div class="card"><h3>C1 系列（2025–）</h3><p>高端 CPU 品牌统一：C1-Nano / Pro / Premium / Ultra（原 X925 继任者）。</p></div>
+          <div class="card"><h3>Arm AGI CPU（2026）</h3><p>首颗自研量产芯片：136 核、面向 agentic AI 工作负载。作为"成品芯片"适用与 IP 不同的出口规则——反而可以卖给中国。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arm China 风险 -->
+    <section class="block" id="china">
+      <div class="inner">
+        <p class="eyebrow">05 · Arm China Risk</p>
+        <h2>Arm China 四层风险</h2>
+        <p class="lede">Arm China 是一个<strong>顶着 Arm 品牌、独家代理中国市场、但母公司管不住的独立合资公司</strong>：Arm 间接经济权益仅约 5% 且无投票权（48% 软银系 Acetone / 35% 厚朴 / 17% 其他中方），收入按净额法确认。它是 Arm 最大单一客户——<strong>占收入 16%（FY26），从 21% 逐年下降</strong>。</p>
+        <div class="grid2" style="margin-bottom:44px;">
+          <div>
+            <div class="legend"><span><i style="background:#4d8dd6"></i>Arm China 占总收入</span><span><i style="background:#6e7278"></i>PRC 占总收入</span></div>
+            <div class="chart-wrap short"><canvas id="cnChart" role="img" aria-label="Arm China 收入敞口逐年下降"></canvas></div>
+          </div>
+          <div class="callout warn" style="margin:0;">
+            <b>为什么一枚公章能压过董事会决议：</b>在中国，盖公章的文件即公司正式意思表示，对外一律有效；前 CEO 吴雄昂手握公章 + 身为登记法定代表人，被罢免后拒不交权拖了两年（2020–2022）。中国资产"法律所有权 ≠ 实际控制权"，这是中概/合资治理折价的根源。相关诉讼至今未了结。
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="card"><h3>① 控制权</h3><p>吴雄昂公章夺权事件（2020–2022）：董事会两次罢免均被物理抵抗，最终靠夺回工商登记与新公章才翻盘。现以"不并表 + 净额收租"把治理雷隔离在墙外。</p></div>
+          <div class="card"><h3>② 数据真实性</h3><p>中国区版税按 Arm China 自报数确认。对其应收款坏账准备 FY25 $16.0M → FY26 $28.3M，一年几乎翻倍；2023 年底还终止过一项服务协议收回自营。</p></div>
+          <div class="card"><h3>③ IP / 竞争</h3><p>安谋科技在 Arm 品牌下发展不受总部控制的自主 IP 线（周易 NPU、星辰 CPU 等），并推进开源生态——渠道同时在做"去 Arm 化"备胎。</p></div>
+          <div class="card"><h3>④ 地缘政治</h3><p>2019 华为断供风波（后认定 v8/v9 英国原产恢复）；2022 起最高端 Neoverse V 因管制无法授权中国（阿里平头哥被拒）。而 AGI CPU 作为成品芯片反而可售华——这也是转型动因之一。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关键人物 -->
+    <section class="block alt" id="people">
+      <div class="inner">
+        <p class="eyebrow">06 · People</p>
+        <h2>关键人物</h2>
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th>人物</th><th>角色</th><th>关键贡献</th></tr></thead>
+            <tbody>
+              <tr><td>Sophie Wilson &amp; Steve Furber</td><td>Acorn 架构师</td><td>设计首颗 ARM 处理器，奠定 RISC 低功耗基因</td></tr>
+              <tr><td>Robin Saxby</td><td>首任 CEO（1991–）</td><td>确立 IP 授权商业模式</td></tr>
+              <tr><td>Warren East</td><td>CEO（2001–2013）</td><td>带领 Arm 统治智能手机时代</td></tr>
+              <tr><td>Simon Segars</td><td>CEO（2013–2022）</td><td>经历软银收购与英伟达交易</td></tr>
+              <tr class="hl"><td>Rene Haas</td><td>CEO（2022–）</td><td>主导 IPO、押注数据中心/AI、推动自研 AGI CPU</td></tr>
+              <tr><td>孙正义</td><td>软银创始人</td><td>2016 私有化操盘，仍控股约 90%</td></tr>
+              <tr><td>吴雄昂（Allen Wu）</td><td>前 Arm China CEO</td><td>2020–2022 控制权纠纷中心人物</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 来源 -->
+    <section class="block" id="sources">
+      <div class="inner">
+        <p class="eyebrow">07 · Sources</p>
+        <h2>数据来源</h2>
+        <ul class="srclist">
+          <li>FY2026 年报 Form 20-F 与各季度股东信 6-K（SEC CIK 1973239，本地存档于 <code>Investing/ARM/financials/</code>）</li>
+          <li><a href="https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm" target="_blank" rel="noopener">FY2026 Form 20-F 原文</a> · <a href="https://investors.arm.com" target="_blank" rel="noopener">Arm Investor Relations</a></li>
+          <li>商业模式与 Arm China 专题：本地研究 <code>ARM/business/royalty-licensing.md</code>、<code>ARM/risk/china.md</code>（含 20-F 原文摘录与二手报道索引）</li>
+          <li>历史沿革：<a href="https://newsroom.arm.com/blog/arm-official-history" target="_blank" rel="noopener">Arm 官方历史</a> 等</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script is:inline>
+  const INK = '#f5f5f7', INK3 = '#6e7278', LINE = '#26282c', BLUE = '#4d8dd6';
+  Chart.defaults.color = INK3;
+  Chart.defaults.font.family = '"Helvetica Neue", Arial, sans-serif';
+  Chart.defaults.borderColor = LINE;
+  const noLegend = { plugins: { legend: { display: false } } };
+
+  const qLabels = ['24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4','26Q1','26Q2','26Q3','26Q4'];
+  new Chart(document.getElementById('qChart'), {
+    type: 'bar',
+    data: { labels: qLabels, datasets: [
+      { label: '版税', data: [400,418,470,514,467,514,580,607,585,620,737,671], backgroundColor: BLUE },
+      { label: '授权', data: [275,388,354,414,472,330,403,634,468,515,505,819], backgroundColor: INK }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, ...noLegend,
+      scales: { x: { stacked: true, grid: { display: false } },
+                y: { stacked: true, ticks: { callback: v => '$' + v + 'M' } } } }
+  });
+
+  new Chart(document.getElementById('aChart'), {
+    type: 'bar',
+    data: { labels: ['FY2024','FY2025','FY2026'], datasets: [
+      { label: '总营收', data: [3233,4007,4920], backgroundColor: BLUE, maxBarThickness: 40 },
+      { label: 'Non-GAAP 净利', data: [null,1737,1889], backgroundColor: INK, maxBarThickness: 40 },
+      { label: 'GAAP 净利', data: [306,792,904], backgroundColor: INK3, maxBarThickness: 40 }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, ...noLegend,
+      scales: { x: { grid: { display: false } }, y: { ticks: { callback: v => '$' + v + 'M' } } } }
+  });
+
+  new Chart(document.getElementById('cnChart'), {
+    type: 'line',
+    data: { labels: ['FY2024','FY2025','FY2026'], datasets: [
+      { label: 'Arm China', data: [21,17,16], borderColor: BLUE, pointBackgroundColor: BLUE, borderWidth: 2, pointRadius: 4, tension: 0.3 },
+      { label: 'PRC', data: [22,19,18], borderColor: INK3, pointBackgroundColor: INK3, borderWidth: 2, pointRadius: 4, tension: 0.3, borderDash: [6,4] }
+    ]},
+    options: { responsive: true, maintainAspectRatio: false, ...noLegend,
+      scales: { x: { grid: { display: false } }, y: { min: 10, max: 25, ticks: { callback: v => v + '%' } } } }
+  });
+</script>
