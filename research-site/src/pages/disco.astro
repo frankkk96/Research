@@ -1,7 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+const sections = [
+  { id: 'overview', label: '公司概览' },
+  { id: 'business', label: '业务构成' },
+  { id: 'financials', label: '五年财务' },
+  { id: 'regions', label: '地区与客户' },
+  { id: 'supply', label: '供应链' },
+  { id: 'risks', label: '风险地图' },
+  { id: 'sources', label: '数据来源' },
+];
 ---
-<Base title="DISCO 研究 — 切・磨・抛的准垄断者" description="DISCO Corporation (6146.T) 深度研究：业务、财务、地区、客户与风险">
+<Base title="DISCO 研究 — 切・磨・抛的准垄断者" description="DISCO Corporation (6146.T) 深度研究：业务、财务、地区、客户与风险" sections={sections}>
   <main>
     <section class="hero" style="background:
       radial-gradient(ellipse 70% 50% at 78% 20%, rgba(77,141,214,0.16), transparent 62%),

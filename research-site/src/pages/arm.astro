@@ -1,7 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+const sections = [
+  { id: 'model', label: '商业模式' },
+  { id: 'financials', label: '三年财务' },
+  { id: 'history', label: '发展沿革' },
+  { id: 'products', label: '产品演进' },
+  { id: 'china', label: 'Arm China 风险' },
+  { id: 'people', label: '关键人物' },
+  { id: 'sources', label: '数据来源' },
+];
 ---
-<Base title="ARM 研究 — 计算世界的底层标准" description="Arm Holdings (NASDAQ: ARM) 深度研究：商业模式、财务、历史与 Arm China 风险">
+<Base title="ARM 研究 — 计算世界的底层标准" description="Arm Holdings (NASDAQ: ARM) 深度研究：商业模式、财务、历史与 Arm China 风险" sections={sections}>
   <main>
     <section class="hero" style="background:
       radial-gradient(ellipse 75% 55% at 22% 15%, rgba(77,141,214,0.18), transparent 60%),
